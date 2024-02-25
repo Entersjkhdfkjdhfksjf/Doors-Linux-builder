@@ -12,6 +12,7 @@ devices=$(lsblk -rno NAME,SIZE,MOUNTPOINT | awk '$3 == "" {print "/dev/"$1,$2}')
 # display the available drives
 echo "Available drives:"
 echo "$devices"
+mkdir mount
 dd of=mk.iso if=/dev/zero bs=1M count=500
 sudo mount mk.iso mount
 
