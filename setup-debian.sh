@@ -12,9 +12,11 @@ devices=$(lsblk -rno NAME,SIZE,MOUNTPOINT | awk '$3 == "" {print "/dev/"$1,$2}')
 # display the available drives
 echo "Available drives:"
 echo "$devices"
+dd of=mk.iso if=/dev/zero bs=1M count=500
+sudo mount mk.iso mount
 
 # prompt the user to select a drive
-disk=$GITHUB_WORKFLOWS/mount
+disk=$GITHUB_WORKSPACE/mount
 echo "You selected $disk."
 echo ""
 
