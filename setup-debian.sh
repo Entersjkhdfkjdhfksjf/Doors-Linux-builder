@@ -14,6 +14,7 @@ echo "Available drives:"
 echo "$devices"
 mkdir mount
 dd of=mk.iso if=/dev/zero bs=1M count=500
+mkfs -t fat mk.iso
 sudo mount mk.iso mount
 
 # prompt the user to select a drive
