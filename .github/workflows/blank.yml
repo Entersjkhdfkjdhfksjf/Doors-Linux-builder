@@ -28,7 +28,8 @@ jobs:
       # Runs a single command using the runners shell
       - name: Run a one-line script
         run: |
-         sudo apt install bash debootstrap lsblk parted sgdisk dosfstools -y
+         sudo apt update
+         sudo apt install bash debootstrap parted sgdisk dosfstools -y
          chmod +x ./setup-debian.sh
          ./setup-debian.sh
          
